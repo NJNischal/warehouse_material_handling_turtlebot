@@ -5,6 +5,8 @@
 
 ## Overview
 
+The Package is to show the planner module of the ROS planning using turtlebot. This package also demonstartes the picka and place of an object with the turtlebot at certain designated spots of the created map 
+ 
 ## License
 The Repository is Licensed under the MIT License.
 ```
@@ -33,4 +35,7 @@ SOFTWARE.
 
 ## AIP Process
 AIP is a process to keep track of the development process of the project and the various stages of it. This is to ensure proper documenting and coding procesure [AIP Sheet].(https://docs.google.com/spreadsheets/d/1mz-8v_BhBHvQzzaIUV40c7f-A-4HRVEf6sYYMSnGGtY/edit?usp=sharing) 
+
+## Sprint File 
+The sprint is a one timeboxed iteration of a continuous development cycle. The planned amount of work has to be completed within the timefrme and made ready for review. It also records the problems faced in the particular development cycle and also explains what was done to overcome the shortcomings of that particlualr model. The link to the file is given in the link [Sprint].(https://docs.google.com/document/d/1NIg2KEz3llf0xRq-ydAG3ZItjLUa9o6z1Mq-7OKM3RY/edit?usp=sharing)
 
