@@ -32,7 +32,7 @@
  * to the turtlebot.
  */
 
-#include "TurtlebotController.h"
+#include "../include/warehouse_material_handling_turtlebot/TurtlebotController.h"
 
 TurtlebotController::TurtlebotController() {
 }

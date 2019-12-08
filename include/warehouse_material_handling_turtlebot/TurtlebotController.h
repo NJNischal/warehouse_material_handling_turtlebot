@@ -32,8 +32,8 @@
  * to the turtlebot.
  */
 
-#ifndef SRC_TURTLEBOTCONTROLLER_H_
-#define SRC_TURTLEBOTCONTROLLER_H_
+#ifndef INCLUDE_WAREHOUSE_MATERIAL_HANDLING_TURTLEBOT_TURTLEBOTCONTROLLER_H_
+#define INCLUDE_WAREHOUSE_MATERIAL_HANDLING_TURTLEBOT_TURTLEBOTCONTROLLER_H_
 
 #include <iostream>
 #include <vector>
@@ -94,4 +94,4 @@ public:
 	  ros::Subscriber subscribeVel;  // Subscribing to the topic: "/navigation_velocity_smoother/raw_cmd_vel"
 };
 
-#endif /* SRC_TURTLEBOTCONTROLLER_H_ */
+#endif /* INCLUDE_WAREHOUSE_MATERIAL_HANDLING_TURTLEBOT_TURTLEBOTCONTROLLER_H_ */
