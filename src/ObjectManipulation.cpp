@@ -32,7 +32,8 @@
  * locations in the map
  */
 
-#include "ObjectManipulation.h"
+#include "../include/warehouse_material_handling_turtlebot/ObjectManipulation.h"
+
 #include "ros/ros.h"
 
 /*
