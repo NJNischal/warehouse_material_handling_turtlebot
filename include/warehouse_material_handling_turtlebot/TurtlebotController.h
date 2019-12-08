@@ -24,7 +24,7 @@
  */
 
 /**
- * @file TurtlebotController.hpp
+ * @file TurtlebotController.h
  * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
  * @copyright MIT License.
  * @date 27/11/2019
@@ -45,14 +45,14 @@
 class TurtlebotController {
 public:
 	 /*
-	  * @brief The constructor for the plannerController class.
+	  * @brief The constructor for the TurtlebotController class.
 	  * @param None.
 	  * @return None.
 	  */
 	TurtlebotController();
 
 	 /*
-	  * @brief The Destructor for the plannerController Class.
+	  * @brief The Destructor for the TurtlebotController Class.
 	  * @param None.
 	  * @return None.
 	  */
