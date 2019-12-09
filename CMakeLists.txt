@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(warehouse_material_handling_turtlebot)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -201,3 +201,26 @@ add_executable(warehouse_material_handling_turtlebot src/main.cpp src/PlanningAl
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
+  add_rostest_gtest(warehouse_material_handling_turtlebotTest
+                     test/warehouse_material_handling_turtlebot.test
+                     test/main.cpp
+                     test/PlanningAlgorithmTest.cpp
+                     test/WarehouseLocomotionTest.cpp
+                     test/ObjectManipulationTest.cpp
+                     test/TurtlebotControllerTest.cpp
+                     src/PlanningAlgorithm.cpp
+                     src/WarehouseLocomotion.cpp
+                     src/ObjectManipulation.cpp
+                      src/TurtlebotController.cpp)
+  target_link_libraries(warehouse_material_handling_turtlebotTest ${catkin_LIBRARIES})
+  include_directories(include ${catkin_INCLUDE_DIRS})
+  add_dependencies(
+  warehouse_material_handling_turtlebotTest
+  warehouse_material_handling_turtlebot
+  ${catkin_EXPORTED_TARGETS}
+  )
+
+endif()
