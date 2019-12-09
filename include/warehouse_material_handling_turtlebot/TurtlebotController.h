@@ -75,6 +75,13 @@ public:
 	  void writeVel();
 
 	  /**
+	   * @brief Getter for private attribute cmd_vel
+	   * @params None
+	   * @return  geometry_msgs::Twist Returns cmd_vel
+	   */
+	    geometry_msgs::Twist getVel() ;
+
+	  /**
 	   * @brief is a callback function for the subscriber, this function sets the command
 	   * message from the move_base message.
 	   * @param None.

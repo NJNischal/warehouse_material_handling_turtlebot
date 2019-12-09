@@ -43,17 +43,24 @@
  * @return None
  */
 TEST(TurtlebotControllerTest, TestMethods) {
-  // Object for the TurtlebotController class.
+
+	// Object for the TurtlebotController class.
   TurtlebotController rob;
-  //creating a twist message
+
+  // Twist message creation
   geometry_msgs::Twist message;
-  // setting linear velocity in x is 2
+
+  // Assign linear velocity in x as 2
   message.linear.x = 2;
+
   geometry_msgs::Twist::ConstPtr velocity(new geometry_msgs::Twist(message));
-  // sending velocity to callBack function
+
+  // Send velocity to callBack function
   rob.velocityMsgCallback(velocity);
-  geometry_msgs::Twist vel = rob.getVelocity();
-  // testing velocity set by the callback function is correct.
+
+  geometry_msgs::Twist vel = rob.getVel();
+
+  // Test velocity set by the the callback function
   EXPECT_EQ(2, vel.linear.x);
 }
 
