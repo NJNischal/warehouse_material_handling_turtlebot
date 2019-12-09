@@ -6,6 +6,7 @@
 <arg name="x_pos_vals" default="0.0"/>
 <arg name="y_pos_vals" default="0.0"/>
 <arg name="z_pos_vals" default="0.0"/>
+<arg name="bagrecord" default = "true"/>
 
 <include file= "$(find turtlebot_gazebo)/launch/turtlebot_world.launch"> 
       <arg name="world_file" value="$(arg world_file)"/>
@@ -21,10 +22,10 @@
 
 <node
      pkg="rosbag"
-     name="record"
+     name="warehouse_material_handling_turtlebot"
      type="record"
-     args="-a -x /camera/(.*) --duration=$(arg secs) -O $(find warehouse_material_handling_turtlebot)/results/turtlebotRecord.bag"
-  if="$(arg record)"
+     args="record -o /$(find warehouse_material_handling_turtlebot)/Results/turtlebotRecord.bag -a -x /camera/(.*) --duration=30"
+  if="$(arg bagrecord)"
  />
 
 </launch>
