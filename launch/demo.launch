@@ -1,0 +1,21 @@
+<launch>
+  
+<!-- Arguments -->
+<arg name="world_file"
+       default="$(find warehouse_material_handling_turtlebot)/data/world/final_map.world"/>
+<arg name="x_pos_vals" default="0.0"/>
+<arg name="y_pos_vals" default="0.0"/>
+<arg name="z_pos_vals" default="0.0"/>
+
+<include file= "$(find turtlebot_gazebo)/launch/turtlebot_world.launch"> 
+      <arg name="world_file" value="$(arg world_file)"/>
+  </include>
+
+
+ <include file="$(find turtlebot_gazebo)/launch/amcl_demo.launch"> 
+       <arg name="map_file" value="$(find warehouse_material_handling_turtlebot)/data/map/final_map.yaml"/>
+ </include>
+
+<!-- Launching Node for warehouse_material_handling_turtlebot package -->
+<include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"/>
+</launch>
