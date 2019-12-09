@@ -101,9 +101,25 @@ Slippage of robot during gmapping
 Errors in spawning objects at pickup locations  and re-spawning them at drop locations
 Ros bag too big due to multiple scan topics by camera and lasers.
 
-Doxygen generation
+
+## Recording ROSBAG
+
+ Record the rostopics using the following command with the launch file:
+```
+roslaunch  warehouse_material_handling_turtlebot demo.launch record:=true
+```
+recorded bag file will be stored in the results folder and records all except camera topics, for 30 seconds.
 
 
+
+## Running ROSBAG
+Navigate to the results folder
+```
+cd ~/catkin_ws/src/ warehouse_material_handling_turtlebot/results
+```
+play the bag file
+```
+rosbag play turtlebotRecord.bag
 
 
 
@@ -130,6 +146,8 @@ Plugins (style guide, eclipse cpp checks integration):
     Project Explorer and choose Source -> Format
 
 [reference-id-for-eclipse-cpp-google-style]: https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml
+
+
 
 
 
