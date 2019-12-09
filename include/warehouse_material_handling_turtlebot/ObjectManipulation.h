@@ -73,7 +73,7 @@ public:
 	   * @param double y Y coordinate of position on the map to show the object
 	   * @return None
 	   */
-	  void showObject(double x, double y);
+	  std::string showObject(double x, double y);
 
 	  /**
 	   * @brief Will make the object disappear
@@ -81,7 +81,7 @@ public:
 	   * @param None
 	   * @return None
 	   */
-	  void disappearObject();
+	  std::string disappearObject();
 
 
 
