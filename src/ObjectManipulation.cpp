@@ -57,11 +57,15 @@ std::string ObjectManipulation::setTargetPoint(double targetPoint) {
 	return a;
 }
 
-void ObjectManipulation::showObject(double x, double y) {
+std::string ObjectManipulation::showObject(double x, double y) {
   (void) x;
   (void) y;
+  std::string temp = "Void";
+  return temp;
 }
 
-void ObjectManipulation::disappearObject() {
+std::string ObjectManipulation::disappearObject() {
+  std::string temp = "Void";
+  return temp;
 }
 
