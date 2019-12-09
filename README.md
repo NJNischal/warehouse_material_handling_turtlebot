@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/Charan-Karthikeyan/warehouse_material_handiling_turtlebot.svg?branch=master)](https://travis-ci.org/Charan-Karthikeyan/warehouse_material_handiling_turtlebot)
-[![Coverage Status](https://coveralls.io/repos/github/Charan-Karthikeyan/warehouse_material_handiling_turtlebot/badge.svg?branch=master)](https://coveralls.io/github/Charan-Karthikeyan/warehouse_material_handiling_turtlebot?branch=master)
+[![Build Status](https://travis-ci.org/Charan-Karthikeyan/warehouse_material_handling_turtlebot.svg?branch=master)](https://travis-ci.org/Charan-Karthikeyan/warehouse_material_handling_turtlebot)
+[![Coverage Status](https://coveralls.io/repos/github/Charan-Karthikeyan/warehouse_material_handling_turtlebot/badge.svg?branch=master)](https://coveralls.io/github/Charan-Karthikeyan/warehouse_material_handling_turtlebot?branch=master)
 
 # warehouse_material_handling_turtlebot
 

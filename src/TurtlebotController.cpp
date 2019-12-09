@@ -43,6 +43,12 @@ TurtlebotController::~TurtlebotController() {
 void TurtlebotController::readVel() {
 }
 
+geometry_msgs::Twist TurtlebotController::getVel(){
+	geometry_msgs::Twist a;
+	a.linear.x=1;
+	return a;
+}
+
 void TurtlebotController::velocityMsgCallback(
     const geometry_msgs::Twist::ConstPtr& msg) {
 }

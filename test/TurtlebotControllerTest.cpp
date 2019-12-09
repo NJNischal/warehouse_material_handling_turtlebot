@@ -24,21 +24,43 @@
  */
 
 /**
- * @file main.cpp
+ * @file TurtlebotControllerTest.cpp
  * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
  * @copyright MIT License.
- * @date 27/11/2019
- * @brief The main file for the package
+ * @date 28/11/2019
+ * @brief test cpp file for TurtlebotController class
  */
 
+#include <ros/ros.h>
+#include <geometry_msgs/Twist.h>
+#include <gtest/gtest.h>
+#include <memory>
+#include "warehouse_material_handling_turtlebot/TurtlebotController.h"
 
 
+/**
+ * @brief To test for methods in TurtlebotController class
+ * @return None
+ */
+TEST(TurtlebotControllerTest, TestMethods) {
 
+	// Object for the TurtlebotController class.
+  TurtlebotController rob;
 
-#include <iostream>
+  // Twist message creation
+  geometry_msgs::Twist message;
 
-int main()
-{
-   return 0;
+  // Assign linear velocity in x as 2
+  message.linear.x = 2;
+
+  geometry_msgs::Twist::ConstPtr velocity(new geometry_msgs::Twist(message));
+
+  // Send velocity to callBack function
+  rob.velocityMsgCallback(velocity);
+
+  geometry_msgs::Twist vel = rob.getVel();
+
+  // Test velocity set by the the callback function
+  EXPECT_EQ(2, vel.linear.x);
 }
 

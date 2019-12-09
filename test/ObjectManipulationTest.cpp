@@ -24,48 +24,50 @@
  */
 
 /**
- * @file ObjectManipulation.cpp
- * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
+ * @file ObjectManipulationTest.cpp
+ * @author Charan Karthikeyan P V (Driver), Nagireddi Jagadesh Nischal (Navigator)
  * @copyright MIT License.
  * @date 27/11/2019
- * @brief Cpp file for class to manipulate objects when Turtlebot reaches pick up or drop off
+ * @brief Cpp file for test class to manipulate objects when Turtlebot reaches pick up or drop off
  * locations in the map
  */
 
+#include "gtest/gtest.h"
 #include "../include/warehouse_material_handling_turtlebot/ObjectManipulation.h"
-
-#include "ros/ros.h"
-
 /*
- * @brief The constructor for the ObjectManipulation class.
- * @param None.
- * @return None.
+ * @brief Test function to test the string conversion.
  */
-ObjectManipulation::ObjectManipulation() {
+TEST(ObjectManipulationTest,stringTest) {
+  ObjectManipulation obs;
+  EXPECT_EQ(obs.setTargetPoint(10),"10");
 }
-
 /*
- * @brief The destructor for the ObjectManipulation class.
- * @param None.
- * @return None.
+ * @brief Test function to test the object spawn function.
  */
-ObjectManipulation::~ObjectManipulation() {
+TEST(ObjectManipulationTest,showObjectTest) {
+  ObjectManipulation obs;
+  std::string command = "rosrun gazebo_ros spawn_model -file src/warehouse_material_handling_turtlebot/gazebo_models/wood_cube_10cm/model.sdf -sdf -x 0 -y 0 -z 0 -model wood";
+  EXPECT_EQ(obs.showObject(0,0),command);
 }
-
-std::string ObjectManipulation::setTargetPoint(double targetPoint) {
-	std::string a="a";
-	return a;
+/*
+ * @brief Test function for removing the object.
+ */
+TEST(ObjectManipulationTest,disappearObjectTest) {
+  ObjectManipulation obs;
+  std::string command = "rosservice call /gazebo/delete_model model_name: 'wood'";
+  EXPECT_EQ(obs.disappearObject(),command);
 }
-
-std::string ObjectManipulation::showObject(double x, double y) {
-  (void) x;
-  (void) y;
-  std::string temp = "Void";
-  return temp;
+/*
+ * @brief Test function to test the object spawn function.
+ */
+TEST(ObjectManipulationTest,showObjectNETest) {
+  ObjectManipulation obs;
+  EXPECT_EQ(obs.showObject(0,0),"10");
 }
-
-std::string ObjectManipulation::disappearObject() {
-  std::string temp = "Void";
-  return temp;
+/*
+ * @brief Test function for removing the object.
+ */
+TEST(ObjectManipulationTest,disappearObjectNETest) {
+  ObjectManipulation obs;
+  EXPECT_EQ(obs.disappearObject(),"0");
 }
-

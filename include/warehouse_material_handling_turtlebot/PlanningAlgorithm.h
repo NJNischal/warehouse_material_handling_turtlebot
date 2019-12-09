@@ -122,7 +122,7 @@ public:
 	   * @param The node to be published to.
 	   * @return None.
 	   */
-	  ros::Publisher publishGoalPoint = nodeH.advertise<move_base_msgs>::MoveBaseActionGoal>("/move_base/goal",100);
+	  ros::Publisher publishGoalPoint = nodeH.advertise<move_base_msgs::MoveBaseActionGoal>("/move_base/goal",100);
 
 	  // Object to the subscriber.
 	  ros::Subscriber readSystemStatus;

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(warehouse_material_handling_turtlebot)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  actionlib
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -68,10 +70,12 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  actionlib
+  geometry_msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -105,7 +109,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES warehouse_material_handling_turtlebot
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs geometry_msgs actionlib
 #  DEPENDS system_lib
 )
 
@@ -133,7 +137,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/warehouse_material_handling_turtlebot_node.cpp)
+add_executable(warehouse_material_handling_turtlebot src/main.cpp src/PlanningAlgorithm.cpp src/WarehouseLocomotion.cpp src/ObjectManipulation.cpp src/TurtlebotController.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -146,9 +150,9 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+ target_link_libraries(warehouse_material_handling_turtlebot
+   ${catkin_LIBRARIES}
+ )
 
 #############
 ## Install ##
@@ -197,3 +201,26 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
+  add_rostest_gtest(warehouse_material_handling_turtlebotTest
+                     test/warehouse_material_handling_turtlebot.test
+                     test/main.cpp
+                     test/PlanningAlgorithmTest.cpp
+                     test/WarehouseLocomotionTest.cpp
+                     test/ObjectManipulationTest.cpp
+                     test/TurtlebotControllerTest.cpp
+                     src/PlanningAlgorithm.cpp
+                     src/WarehouseLocomotion.cpp
+                     src/ObjectManipulation.cpp
+                      src/TurtlebotController.cpp)
+  target_link_libraries(warehouse_material_handling_turtlebotTest ${catkin_LIBRARIES})
+  include_directories(include ${catkin_INCLUDE_DIRS})
+  add_dependencies(
+  warehouse_material_handling_turtlebotTest
+  warehouse_material_handling_turtlebot
+  ${catkin_EXPORTED_TARGETS}
+  )
+
+endif()
