@@ -48,7 +48,7 @@ TEST(ObjectManipulationTest, showObjectTest) {
   ObjectManipulation obs;
   std::string command = "rosrun gazebo_ros spawn_model -"
       "file src/warehouse_material_handling_turtlebot/"
-      "data/beer/model.sdf -sdf -x 0 -y 0 -z 0 -model beer";
+      "data/gazebo_models/beer/model.sdf -sdf -x 0 -y 0 -z 0 -model beer";
   EXPECT_EQ(command, obs.showObject(0, 0));
 }
 /*
@@ -56,7 +56,7 @@ TEST(ObjectManipulationTest, showObjectTest) {
  */
 TEST(ObjectManipulationTest, disappearObjectTest) {
   ObjectManipulation obs;
-  std::string command = "rosservice call /gazebo/delete_model wood";
+  std::string command = "rosservice call /gazebo/delete_model beer";
   EXPECT_EQ(command, obs.disappearObject());
 }
 /*
