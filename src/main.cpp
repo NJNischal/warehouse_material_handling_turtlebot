@@ -39,41 +39,39 @@
 
 
 int main(int argc, char* argv[]) {
-  //Initialize the ros
+  // Initialize the ros
   ros::init(argc, argv, "warehouse_material_handling_turtlebot");
-  //Objects for the classes
+  // Objects for the classes
   PlanningAlgorithm planner;
   TurtlebotController controller;
   ObjectManipulation obm;
   WarehouseLocomotion wareLoco;
-  //Get the pick up and drop off points
+  // Get the pick up and drop off points
   auto pickUp = wareLoco.getPickPoint1();
   auto dropOff = wareLoco.getDropPoint1();
   // Initialize the flag status
   bool flag = true;
-  //Declare and populate the struct.
+  // Declare and populate the struct.
   std::vector<Location> order;
   order.push_back(pickUp);
   order.push_back(dropOff);
-  std::cout << order.size() << std::endl;
-  //Publish and subscribe for the velocity.
+  std::cout<< "Spawning the object "<< std::endl;
+  obm.showObject(pickUp.x, pickUp.y);
+  // Publish and subscribe for the velocity.
   controller.readVel();
   planner.subscriberStatus();
   for (auto iter = order.begin(); iter != order.end(); iter++) {
     auto goal = *iter;
-    //Set the goal point
+    // Set the goal point
     planner.setGoalPt(goal.x, goal.y);
-    std::cout << planner.getGoal() << std::endl;
     while (flag) {
-      std::cout << "Initiating" << std::endl;
       ros::Rate loop_rate(1);
       planner.sendGoalPt();
       controller.writeVel();
       auto status = planner.getStatusPt();
       if (status == 3) {
         flag = false;
-        obm.showObject(goal.x, goal.y);
-        std::cout << "Exiting Loop" << std::endl;
+        ROS_INFO("EXITTING LOOP");
       }
       ros::spinOnce();
       loop_rate.sleep();

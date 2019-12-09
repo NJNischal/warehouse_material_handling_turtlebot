@@ -30,13 +30,10 @@
  * @date 28/11/2019
  * @brief main cpp file for testing
  */
-
-
 #include "ros/ros.h"
 #include "gtest/gtest.h"
 
 int main(int argc, char** argv) {
-
   ros::init(argc, argv, "warehouseMaterialHandlingTurtlebotTest");
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

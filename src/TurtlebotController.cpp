@@ -41,12 +41,12 @@ TurtlebotController::~TurtlebotController() {
 }
 
 void TurtlebotController::readVel() {
-  subscribeVel = nodeH.subscribe("/navigation_velocity_smoother/raw_cmd_vel",200,&TurtlebotController::velocityMsgCallback,this);
+  subscribeVel = nodeH.subscribe("/navigation_velocity_smoother/raw_cmd_vel",
+                        200, &TurtlebotController::velocityMsgCallback, this);
 }
 
-geometry_msgs::Twist TurtlebotController::getVel(){
+geometry_msgs::Twist TurtlebotController::getVel() {
   return cmdVelocity;
-
 }
 
 void TurtlebotController::velocityMsgCallback(

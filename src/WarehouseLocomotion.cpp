@@ -40,20 +40,18 @@
 	 * @return None.
 	 */
 WarehouseLocomotion::WarehouseLocomotion() {
-	dropLocation1.x = 3.0;
-	dropLocation1.y = 2.0;
-	dropLocation2.x = 3.0;
-	dropLocation2.y = 4.0;
-	dropLocation3.x = -2.0;
-	dropLocation3.y = 4.0;
-
-	pickLocation1.x = -8.0;
-	pickLocation1.y = -5.0;
-	pickLocation2.x = -7.0;
-	pickLocation2.y = -7.0;
-	pickLocation3.x = -5.0;
-	pickLocation3.y = -7.0;
-
+  dropLocation1.x = 3.0;
+  dropLocation1.y = 2.0;
+  dropLocation2.x = 3.0;
+  dropLocation2.y = 4.0;
+  dropLocation3.x = -2.0;
+  dropLocation3.y = 4.0;
+  pickLocation1.x = -8.0;
+  pickLocation1.y = -5.0;
+  pickLocation2.x = -7.0;
+  pickLocation2.y = -7.0;
+  pickLocation3.x = -5.0;
+  pickLocation3.y = -7.0;
 }
 
 /*

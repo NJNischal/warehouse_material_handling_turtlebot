@@ -69,7 +69,7 @@ TEST(PlanningAlgorithmTest, InitialErrorCheck) {
  * @return None
  */
 TEST(PlanningAlgorithmTest, callbackTest) {
-	PlanningAlgorithm plan;
+  PlanningAlgorithm plan;
   actionlib_msgs::GoalStatusArray msg;
 
 //  EXPECT_EQ(3, plan.getStatus());

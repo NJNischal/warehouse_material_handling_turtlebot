@@ -33,9 +33,7 @@
  */
 
 #include "../include/warehouse_material_handling_turtlebot/ObjectManipulation.h"
-
 #include "ros/ros.h"
-
 /*
  * @brief The constructor for the ObjectManipulation class.
  * @param None.
@@ -54,39 +52,40 @@ ObjectManipulation::~ObjectManipulation() {
 
 std::string ObjectManipulation::setTargetPoint(double targetPoint) {
   std::ostringstream conv;
-  //Convert the input to string
+  // Convert the input to string
   conv << targetPoint;
   return conv.str();
 }
 
 std::string ObjectManipulation::showObject(double x, double y) {
   // Converting the double values to string
-   std::string g_x = setTargetPoint(x);
-   std::string g_y = setTargetPoint(y);
-   //rosrun file for spawning the object in gazebo.
-   std::string start = "rosrun gazebo_ros spawn_model -file src/material_handling_robot/"
-       "gazebo_models/wood_cube_10cm/model.sdf -sdf ";
-   std::string x_vals = "-x ";
-   std::string y_vals = " -y ";
-   std::string end = "z 0 -model wood";
-   //Joining all the strings to form the command.
-   std::string cmd = start+x_vals+g_x+y_vals+g_y+end;
-   const char* command  = cmd.c_str();
-   ROS_INFO("Set the objects in the map ");
-   //Sending the command to the system.
-   system(command);
-   return cmd;
+  std::string g_x = setTargetPoint(x);
+  std::string g_y = setTargetPoint(y);
+  // rosrun file for spawning the object in gazebo.
+  std::string start = "rosrun gazebo_ros spawn_model "
+      "-file src/warehouse_material_handling_turtlebot/data/"
+      "gazebo_models/beer/model.sdf -sdf ";
+  std::string x_vals = "-x ";
+  std::string y_vals = " -y ";
+  std::string end = " -z 0 -model beer";
+  // Joining all the strings to form the command.
+  std::string cmd = start+x_vals+g_x+y_vals+g_y+end;
+  const char* command  = cmd.c_str();
+  ROS_INFO("Set the objects in the map ");
+  // Sending the command to the system.
+  system(command);
+  return cmd;
 }
 
 std::string ObjectManipulation::disappearObject() {
   // Rosservice to remove the model from the gazebo environment.
   std::string destroy = "rosservice call /gazebo/delete_model";
-  std::string cont = "model_name: 'wood'" ;
-  //Joining the string to form the command.
+  std::string cont = " beer";
+  // Joining the string to form the command.
   std::string cmd = destroy+cont;
   const char* command = cmd.c_str();
   ROS_INFO("Removed the Object from the map");
-  //Send the command to the system to execute.
+  // Send the command to the system to execute.
   system(command);
   return cmd;
 }

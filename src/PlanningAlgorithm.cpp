@@ -62,14 +62,14 @@ uint8_t PlanningAlgorithm::getStatusPt() {
 }
 
 void PlanningAlgorithm::subscriberStatus() {
-  readSystemStatus = nodeH.subscribe("/move_base/status",200,&PlanningAlgorithm::reachedTargetStatus, this);
+  readSystemStatus = nodeH.subscribe("/move_base/status",
+           200, &PlanningAlgorithm::reachedTargetStatus, this);
 }
 
 void PlanningAlgorithm::reachedTargetStatus(
     const actionlib_msgs::GoalStatusArray::ConstPtr& msg) {
-  if(!msg->status_list.empty()) {
+  if (!msg->status_list.empty()) {
     actionlib_msgs::GoalStatus goalStatus = msg->status_list[0];
     goalReachStatus = goalStatus.status;
-    std::cout << goalReachStatus << std::endl;
   }
 }
