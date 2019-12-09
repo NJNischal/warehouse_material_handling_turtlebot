@@ -25,9 +25,9 @@
 
 /**
  * @file TurtlebotController.cpp
- * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
+ * @author Charan Karthikeyan P V (Driver), Nagireddi Jagadesh Nischal (Navigator)
  * @copyright MIT License.
- * @date 27/11/2019
+ * @date 3/12/2019
  * @brief The Initialization file to send control messages from the move_base
  * to the turtlebot.
  */
@@ -41,17 +41,19 @@ TurtlebotController::~TurtlebotController() {
 }
 
 void TurtlebotController::readVel() {
+  subscribeVel = nodeH.subscribe("/navigation_velocity_smoother/raw_cmd_vel",200,&TurtlebotController::velocityMsgCallback,this);
 }
 
 geometry_msgs::Twist TurtlebotController::getVel(){
-	geometry_msgs::Twist a;
-	a.linear.x=1;
-	return a;
+  return cmdVelocity;
+
 }
 
 void TurtlebotController::velocityMsgCallback(
     const geometry_msgs::Twist::ConstPtr& msg) {
+  cmdVelocity = *(msg);
 }
 
 void TurtlebotController::writeVel() {
+  publishVel.publish(cmdVelocity);
 }
