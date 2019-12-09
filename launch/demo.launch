@@ -18,4 +18,13 @@
 
 <!-- Launching Node for warehouse_material_handling_turtlebot package -->
 <include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"/>
+
+<node
+     pkg="rosbag"
+     name="record"
+     type="record"
+     args="-a -x /camera/(.*) --duration=$(arg secs) -O $(find warehouse_material_handling_turtlebot)/results/turtlebotRecord.bag"
+  if="$(arg record)"
+ />
+
 </launch>
