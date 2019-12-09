@@ -63,8 +63,8 @@ std::string ObjectManipulation::showObject(double x, double y) {
   std::string g_y = setTargetPoint(y);
   // rosrun file for spawning the object in gazebo.
   std::string start = "rosrun gazebo_ros spawn_model "
-      "-file src/warehouse_material_handling_turtlebot/data/"
-      "gazebo_models/beer/model.sdf -sdf ";
+      "-file src/warehouse_material_handling_turtlebot/"
+      "data/gazebo_models/beer/model.sdf -sdf ";
   std::string x_vals = "-x ";
   std::string y_vals = " -y ";
   std::string end = " -z 0 -model beer";
