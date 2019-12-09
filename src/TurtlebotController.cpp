@@ -43,7 +43,7 @@ TurtlebotController::~TurtlebotController() {
 void TurtlebotController::readVel() {
 }
 
-geometry_msgs::Twist getVel(){
+geometry_msgs::Twist TurtlebotController::getVel(){
 	geometry_msgs::Twist a;
 	a.linear.x=1;
 	return a;
