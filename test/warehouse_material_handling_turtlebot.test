@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="warehouse_material_handling_turtlebot" name="warehouse_material_handling_turtlebot"  type="warehouse_material_handling_turtlebot" />
+  <test pkg="warehouse_material_handling_turtlebot" test-name="warehouse_material_handling_turtlebotTest" type="warehouse_material_handling_turtlebotTest" />
+</launch>
