@@ -27,7 +27,7 @@
  * @file WarehouseLocomotion.cpp
  * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
  * @copyright MIT License
- * @date 27/11/2019
+ * @date 3/12/2019
  * @brief Class to send locations to the Turtlebot to navigate inside the warehouse
  */
 
@@ -40,19 +40,19 @@
 	 * @return None.
 	 */
 WarehouseLocomotion::WarehouseLocomotion() {
-	dropLocation1.x = 1.0;
-	dropLocation1.y = 0.0;
-	dropLocation2.x = 2.0;
-	dropLocation2.y = 0.0;
-	dropLocation3.x = 3.0;
-	dropLocation3.y = 0.0;
+	dropLocation1.x = 3.0;
+	dropLocation1.y = 2.0;
+	dropLocation2.x = 3.0;
+	dropLocation2.y = 4.0;
+	dropLocation3.x = -2.0;
+	dropLocation3.y = 4.0;
 
-	pickLocation1.x = 5.0;
-	pickLocation1.y = 0.0;
-	pickLocation2.x = 6.0;
-	pickLocation2.y = 0.0;
-	pickLocation3.x = 7.0;
-	pickLocation3.y = 0.0;
+	pickLocation1.x = -8.0;
+	pickLocation1.y = -5.0;
+	pickLocation2.x = -7.0;
+	pickLocation2.y = -7.0;
+	pickLocation3.x = -5.0;
+	pickLocation3.y = -7.0;
 
 }
 
@@ -65,44 +65,26 @@ WarehouseLocomotion::~WarehouseLocomotion() {
 }
 
 Location WarehouseLocomotion::getDropPoint1() {
-  Location pos;
-  pos.x = 0;
-  pos.y = 0;
-  return pos;
+  return dropLocation1;
 }
 
 Location WarehouseLocomotion::getDropPoint2() {
-  Location pos;
-  pos.x = 0;
-  pos.y = 0;
-  return pos;
+  return dropLocation2;
 }
 
 Location WarehouseLocomotion::getDropPoint3() {
-  Location pos;
-  pos.x = 0;
-  pos.y = 0;
-  return pos;
+  return dropLocation3;
 }
 
 
 Location WarehouseLocomotion::getPickPoint1() {
-  Location pos;
-  pos.x = 2;
-  pos.y = 2;
-  return pos;
+  return pickLocation1;
 }
 
 Location WarehouseLocomotion::getPickPoint2() {
-  Location pos;
-  pos.x = 2;
-  pos.y = 2;
-  return pos;
+  return pickLocation2;
 }
 
 Location WarehouseLocomotion::getPickPoint3() {
-  Location pos;
-  pos.x = 2;
-  pos.y = 2;
-  return pos;
+  return pickLocation3;
 }
