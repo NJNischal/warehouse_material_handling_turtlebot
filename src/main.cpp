@@ -25,20 +25,60 @@
 
 /**
  * @file main.cpp
- * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
+ * @author Charan Karthikeyan P V (Driver), Nagireddi Jagadesh Nischal (Navigator)
  * @copyright MIT License.
- * @date 27/11/2019
+ * @date 4/12/2019
  * @brief The main file for the package
  */
-
-
-
-
-
 #include <iostream>
 
-int main()
-{
-   return 0;
-}
+#include "../include/warehouse_material_handling_turtlebot/TurtlebotController.h"
+#include "../include/warehouse_material_handling_turtlebot/ObjectManipulation.h"
+#include "../include/warehouse_material_handling_turtlebot/PlanningAlgorithm.h"
+#include "../include/warehouse_material_handling_turtlebot/WarehouseLocomotion.h"
 
+
+int main(int argc, char* argv[]) {
+  //Initialize the ros
+  ros::init(argc, argv, "warehouse_material_handling_turtlebot");
+  //Objects for the classes
+  PlanningAlgorithm planner;
+  TurtlebotController controller;
+  ObjectManipulation obm;
+  WarehouseLocomotion wareLoco;
+  //Get the pick up and drop off points
+  auto pickUp = wareLoco.getPickPoint1();
+  auto dropOff = wareLoco.getDropPoint1();
+  // Initialize the flag status
+  bool flag = true;
+  //Declare and populate the struct.
+  std::vector<Location> order;
+  order.push_back(pickUp);
+  order.push_back(dropOff);
+  std::cout << order.size() << std::endl;
+  //Publish and subscribe for the velocity.
+  controller.readVel();
+  planner.subscriberStatus();
+  for (auto iter = order.begin(); iter != order.end(); iter++) {
+    auto goal = *iter;
+    //Set the goal point
+    planner.setGoalPt(goal.x, goal.y);
+    std::cout << planner.getGoal() << std::endl;
+    while (flag) {
+      std::cout << "Initiating" << std::endl;
+      ros::Rate loop_rate(1);
+      planner.sendGoalPt();
+      controller.writeVel();
+      auto status = planner.getStatusPt();
+      if (status == 3) {
+        flag = false;
+        obm.showObject(goal.x, goal.y);
+        std::cout << "Exiting Loop" << std::endl;
+      }
+      ros::spinOnce();
+      loop_rate.sleep();
+    }
+    flag = true;
+  }
+  return 0;
+}
