@@ -24,34 +24,55 @@
  */
 
 /**
- * @file TurtlebotController.cpp
+ * @file PlanningAlgorithmTest.cpp
  * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
  * @copyright MIT License.
  * @date 27/11/2019
- * @brief The Initialization file to send control messages from the move_base
- * to the turtlebot.
+ * @brief Test file for PlanningAlgorithm class methods
  */
 
-#include "../include/warehouse_material_handling_turtlebot/TurtlebotController.h"
 
-TurtlebotController::TurtlebotController() {
+#include <ros/ros.h>
+#include <geometry_msgs/Twist.h>
+#include <gtest/gtest.h>
+#include "../include/warehouse_material_handling_turtlebot/PlanningAlgorithm.h"
+
+/**
+ * @brief To test for get goal setting and getting functions
+ * @param PlanningAlgorithmTest gtest framework
+ * @param  testingGetterandSetterForGoal name of test
+ * @return None
+ */
+TEST(PlanningAlgorithmTest, testingGetterandSetterForGoal) {
+  PlanningAlgorithm plan;
+  plan.setGoalPt(1, 2);
+  auto goal = plan.getGoal();
+  EXPECT_EQ(1, goal.goal.target_pose.pose.position.x);
+  EXPECT_EQ(2, goal.goal.target_pose.pose.position.y);
 }
 
-TurtlebotController::~TurtlebotController() {
+/**
+ * @brief To test nodehandle initialization
+ * @param PlanningAlgorithmTest gtest framework
+ * @param InitialErrorCheck name of test
+ * @return None
+ */
+TEST(PlanningAlgorithmTest, InitialErrorCheck) {
+  ros::NodeHandle nodeH;
+  EXPECT_NO_FATAL_FAILURE(PlanningAlgorithm plan);
 }
 
-void TurtlebotController::readVel() {
+/**
+ * @brief To test GoalStatusArray message
+ * @param PlanningAlgorithmTest  gtest framework
+ * @param callbackTest  name of test
+ * @return None
+ */
+TEST(PlanningAlgorithmTest, callbackTest) {
+	PlanningAlgorithm plan;
+  actionlib_msgs::GoalStatusArray msg;
+
+//  EXPECT_EQ(3, plan.getStatus());
 }
 
-geometry_msgs::Twist getVel(){
-	geometry_msgs::Twist a;
-	a.linear.x=1;
-	return a;
-}
 
-void TurtlebotController::velocityMsgCallback(
-    const geometry_msgs::Twist::ConstPtr& msg) {
-}
-
-void TurtlebotController::writeVel() {
-}
