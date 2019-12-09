@@ -40,7 +40,8 @@ PlanningAlgorithm::~PlanningAlgorithm() {
 }
 
 move_base_msgs::MoveBaseActionGoal PlanningAlgorithm::getGoal() {
-  return goalMsg;
+  move_base_msgs::MoveBaseActionGoal goal;
+  return goal;
 }
 
 void PlanningAlgorithm::setGoalPt(double x, double y) {
