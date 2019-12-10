@@ -6,12 +6,12 @@
 
 ## Overview
 
-This package is a ROS implementation of a material handling robot for a warehouse scenario. The Package uses ROS navigation stack along with Turtlebot to autonomously navigate in a warehouse while demonstrating optimal path planning and obstacle avoidance behaviour.
+(ACME Project codename: RapidGoBot) This package is a ROS implementation of a material handling robot for a warehouse scenario. The Package uses ROS navigation stack along with Turtlebot to autonomously navigate in a warehouse while demonstrating optimal path planning and obstacle avoidance behaviour.
 This package also demonstrates the pick and place of an object with the turtlebot at certain designated locations in the custom designed world map.
  
 
 ## Personnel
-Nagireddi Jagadesh Nischal: Robotics graduate student and a Mechanical engineer. Interested in Machine Learning and Planning for Robots.
+Nagireddi Jagadesh Nischal: Robotics graduate student and a Mechanical engineer. Interested in Machine Learning and Planning for Autonomous Robots.
 
 Charan Karthikeyan Parthasarathy: Robotics graduate student with an interest in Machine learning and autonomous vehicles.
 
