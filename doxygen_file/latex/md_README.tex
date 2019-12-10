@@ -1,0 +1,134 @@
+\href{https://opensource.org/licenses/MIT}{\tt } \href{https://travis-ci.org/Charan-Karthikeyan/warehouse_material_handling_turtlebot}{\tt } \href{https://coveralls.io/github/Charan-Karthikeyan/warehouse_material_handling_turtlebot?branch=master}{\tt }
+
+\section*{warehouse\+\_\+material\+\_\+handling\+\_\+turtlebot}
+
+\subsection*{Overview}
+
+This package is a R\+OS implementation of a material handling robot for a warehouse scenario. The Package uses R\+OS navigation stack along with Turtlebot to autonomously navigate in a warehouse while demonstrating optimal path planning and obstacle avoidance behaviour. This package also demonstrates the pick and place of an object with the turtlebot at certain designated locations in the custom designed world map.
+
+\subsection*{Personnel}
+
+Nagireddi Jagadesh Nischal\+: Robotics graduate student and a Mechanical engineer. Interested in Machine Learning and Planning for Robots.
+
+Charan Karthikeyan Parthasarathy\+: Robotics graduate student with an interest in Machine learning and autonomous vehicles.
+
+\subsection*{License}
+
+The Repository is Licensed under the M\+IT License. 
+\begin{DoxyCode}
+1 MIT License
+2 
+3 Copyright (c) 2019 Charan Karthikeyan Parthasarathy Vasanthi, Nagireddi Jagadesh Nischal.
+4 
+5 Permission is hereby granted, free of charge, to any person obtaining a copy
+6 of this software and associated documentation files (the "Software"), to deal
+7 in the Software without restriction, including without limitation the rights
+8 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+9 copies of the Software, and to permit persons to whom the Software is
+10 furnished to do so, subject to the following conditions:
+11 
+12 The above copyright notice and this permission notice shall be included in all
+13 copies or substantial portions of the Software.
+14 
+15 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+16 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+17 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+18 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+19 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+20 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+21 SOFTWARE.
+\end{DoxyCode}
+
+
+\subsection*{A\+IP Process}
+
+A\+IP is a process to keep track of the development process of the project and the various stages of it. This is to ensure proper documentation and coding procedure \mbox{[}A\+IP Sheet\mbox{]}.(\href{https://docs.google.com/spreadsheets/d/1YG9A4ZB1t7vgH_hY97Hb9HoYH1bjR3qtn0_fkEVQcmw/edit?usp=sharing}{\tt https\+://docs.\+google.\+com/spreadsheets/d/1\+Y\+G9\+A4\+Z\+B1t7vg\+H\+\_\+h\+Y97\+Hb9\+Ho\+Y\+H1bj\+R3qtn0\+\_\+fk\+E\+V\+Qcmw/edit?usp=sharing})
+
+\subsection*{Sprint File}
+
+The sprint is a one time boxed iteration of a continuous development cycle. The planned amount of work has to be completed within the timeframe and made ready for review. It also records the problems faced in the particular development cycle and also explains what was done to overcome the shortcomings of that particular model. The link to the file is given in the link \mbox{[}Sprint\mbox{]}.(\href{https://docs.google.com/document/d/1NIg2KEz3llf0xRq-ydAG3ZItjLUa9o6z1Mq-7OKM3RY/edit?usp=sharing}{\tt https\+://docs.\+google.\+com/document/d/1\+N\+Ig2\+K\+Ez3llf0x\+Rq-\/yd\+A\+G3\+Z\+Itj\+L\+Ua9o6z1\+Mq-\/7\+O\+K\+M3\+R\+Y/edit?usp=sharing})
+
+\subsection*{Requirements and Dependencies\+:}
+
+The project uses the following packages\+:
+\begin{DoxyEnumerate}
+\item R\+OS distro\+: Kinetic
+\item Ubuntu 16.\+04
+\item Packages Dependencies\+:
+\begin{DoxyItemize}
+\item Turtlebot R\+OS packages
+\item gmapping slam packages
+\item roscpp
+\item rospy
+\item std\+\_\+msgs
+\item geometry\+\_\+msgs
+\item tf
+\item rostest
+\item rosbag
+\item sensor\+\_\+msgs
+\item move\+\_\+base\+\_\+msgs
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+Build instructions\+: 
+\begin{DoxyCode}
+1 mkdir -p ~/catkin\_ws/src
+2 cd ~/catkin\_ws/
+3 catkin\_make
+4 source devel/setup.bash
+5 cd src/
+6 git clone --recursive https://github.com/Charan-Karthikeyan/warehouse\_material\_handling\_turtlebot.git
+7 cd ..
+8 catkin\_make
+\end{DoxyCode}
+
+
+Running Test\+: 
+\begin{DoxyCode}
+1 cd ~/catkin\_ws
+2 catkin\_make run\_tests warehouse\_material\_handling\_turtlebot
+\end{DoxyCode}
+
+
+Running Demo\+: 
+\begin{DoxyCode}
+1 cd ~/catkin\_ws
+2 roslaunch warehouse\_material\_handling\_turtlebot demo.launch
+\end{DoxyCode}
+
+
+Known issues/bugs\+: Had issues with gmapping and localisation of robot Slippage of robot during gmapping Errors in spawning objects at pickup locations and re-\/spawning them at drop locations Ros bag too big due to multiple scan topics by camera and lasers.
+
+\subsection*{Recording R\+O\+S\+B\+AG}
+
+Record the rostopics using the following command with the launch file\+: 
+\begin{DoxyCode}
+1 roslaunch  warehouse\_material\_handling\_turtlebot demo.launch record:=true
+\end{DoxyCode}
+ recorded bag file will be stored in the results folder and records all except camera topics, for 30 seconds.
+
+\subsection*{Running R\+O\+S\+B\+AG}
+
+Navigate to the results folder 
+\begin{DoxyCode}
+1 cd ~/catkin\_ws/src/ warehouse\_material\_handling\_turtlebot/results
+\end{DoxyCode}
+ play the bag file ``` rosbag play turtlebot\+Record.\+bag
+
+Plugins (style guide, eclipse cpp checks integration)\+:
+\begin{DoxyItemize}
+\item Cpp\+Ch\+Eclipse
+
+To install and run cppcheck in Eclipse
+\begin{DoxyEnumerate}
+\item In Eclipse, go to Window -\/$>$ Preferences -\/$>$ C/\+C++ -\/$>$ cppcheclipse. Set cppcheck binary path to \char`\"{}/usr/bin/cppcheck\char`\"{}.
+\item To run C\+P\+P\+Check on a project, right click on the project name in the Project Explorer and choose cppcheck -\/$>$ Run cppcheck.
+\end{DoxyEnumerate}
+\item Google C++ Style
+
+To include and use Google C++ Style formatter in Eclipse
+\begin{DoxyEnumerate}
+\item In Eclipse, go to Window -\/$>$ Preferences -\/$>$ C/\+C++ -\/$>$ Code Style -\/$>$ Formatter. Import \href{https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml}{\tt eclipse-\/cpp-\/google-\/style} and apply.
+\item To use Google C++ style formatter, right click on the source code or folder in Project Explorer and choose Source -\/$>$ Format 
+\end{DoxyEnumerate}
+\end{DoxyItemize}
