@@ -54,7 +54,7 @@ The project uses the following packages:
 1. ROS distro: Kinetic
 2. Ubuntu 16.04
 3. Packages Dependencies:
-
+All these packages are already included in the full installation of ROS kinetic. 
  * Turtlebot ROS packages
  * gmapping slam packages
  * roscpp
@@ -67,6 +67,14 @@ The project uses the following packages:
  * sensor_msgs
  * move_base_msgs
 
+## Instruction to install ROS kinetic distro and get the dependencies up and running:
+```
+sudo apt-get update
+sudo apt-get install ros-kinetic-desktop-full
+sudo rosdep init 
+rosdep update
+source /opt/ros/kinetic/setup.bash
+``` 
 
 
 Build instructions:
@@ -93,13 +101,9 @@ Running Demo:
 ```
 cd ~/catkin_ws
 roslaunch warehouse_material_handling_turtlebot demo.launch
+rosrun warehouse_material_handling_turtlebot warehouse_material_handling_turtlebot
 ```
 
-Known issues/bugs:
-Had issues with gmapping and localisation of robot
-Slippage of robot during gmapping
-Errors in spawning objects at pickup locations  and re-spawning them at drop locations
-Ros bag too big due to multiple scan topics by camera and lasers.
 
 
 ## Recording ROSBAG
@@ -113,6 +117,8 @@ recorded bag file will be stored in the results folder and records all except ca
 
 
 ## Running ROSBAG
+We have added rosbag files for 15 and 30 seconds already in the package
+
 Navigate to the results folder
 ```
 cd ~/catkin_ws/src/ warehouse_material_handling_turtlebot/results
@@ -120,10 +126,34 @@ cd ~/catkin_ws/src/ warehouse_material_handling_turtlebot/results
 play the bag file
 ```
 rosbag play turtlebotRecord.bag
+```
+
+# Known issues/bugs:
+
+ * Had issues with gmapping and localisation of robot
+
+ * Slippage of robot during gmapping due to error in localisation in open world files.
+
+ * Errors in spawning objects at pickup locations  and re-spawning them at drop locations in gazebo environment.
+
+ * Ros bag too big due to multiple scan topics by camera and lasers.
+
+ * Travis CI ROS dependencies build failure due to unknown reasons.
+
+# Doxygen File generation
+```
+sudo apt-get install doxygen
+doxygen -g
+Open Doxygen file and source file in "INPUT" prameter and add the include and app folder
+Add "*.hpp *.cpp" in the "FILE_PATTERNS" parameter in the doxygen file
+Run "doxygen ./Doxyfile" in te terminal
+Open html folder
+open index.html
+ ```
 
 
 
-Plugins (style guide, eclipse cpp checks integration):
+# Plugins (style guide, eclipse cpp checks integration):
 - CppChEclipse
 
     To install and run cppcheck in Eclipse
@@ -146,8 +176,6 @@ Plugins (style guide, eclipse cpp checks integration):
     Project Explorer and choose Source -> Format
 
 [reference-id-for-eclipse-cpp-google-style]: https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml
-
-
 
 
 
