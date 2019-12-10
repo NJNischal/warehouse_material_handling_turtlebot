@@ -121,7 +121,7 @@ We have added rosbag files for 15 and 30 seconds already in the package
 
 Navigate to the results folder
 ```
-cd ~/catkin_ws/src/ warehouse_material_handling_turtlebot/results
+cd ~/catkin_ws/src/ warehouse_material_handling_turtlebot/Results
 ```
 play the bag file
 ```
