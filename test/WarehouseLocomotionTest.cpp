@@ -24,7 +24,7 @@
  */
 
 /**
- * @file WarehouseLocomotion.cpp
+ * @file WarehouseLocomotionTest.cpp
  * @author Charan Karthikeyan P V (Driver), Nagireddi Jagadesh Nischal (Navigator)
  * @copyright MIT License.
  * @date 28/11/2019
@@ -33,7 +33,7 @@
 
 #include "gtest/gtest.h"
 #include "ros/ros.h"
-#include "warehouse_material_handling_turtlebot/WarehouseLocomotion.h"
+#include "../include/warehouse_material_handling_turtlebot/WarehouseLocomotion.h"
 
 /*
  * @brief Test function to check methods of warehouselocomotion class.
@@ -44,33 +44,33 @@ TEST(WarehouselocomotionTest, testingClassMethods) {
 
   // checking Location for drop point 1
   Location pos1 = n.getDropPoint1();
-  EXPECT_EQ(1.0, pos1.x);
-  EXPECT_EQ(0.0, pos1.y);
+  EXPECT_EQ(3.0, pos1.x);
+  EXPECT_EQ(2.0, pos1.y);
 
 
   // checking Location for drop point 2
   Location pos2 = n.getDropPoint2();
-  EXPECT_EQ(2.0, pos2.x);
-  EXPECT_EQ(0.0, pos2.y);
+  EXPECT_EQ(3.0, pos2.x);
+  EXPECT_EQ(4.0, pos2.y);
 
   // checking Location for drop point 3
   Location pos3 = n.getDropPoint3();
-  EXPECT_EQ(3.0, pos3.x);
-  EXPECT_EQ(0.0, pos3.y);
+  EXPECT_EQ(-2.0, pos3.x);
+  EXPECT_EQ(4.0, pos3.y);
 
   // checking Location for pick point 1
   Location pos4 = n.getPickPoint1();
-  EXPECT_EQ(4.0, pos4.x);
-  EXPECT_EQ(0.0, pos4.y);
+  EXPECT_EQ(-8.0, pos4.x);
+  EXPECT_EQ(-5.0, pos4.y);
 
   // checking Location for pick point 2
   Location pos5 = n.getPickPoint2();
-  EXPECT_EQ(5.0, pos5.x);
-  EXPECT_EQ(0.0, pos5.y);
+  EXPECT_EQ(-7.0, pos5.x);
+  EXPECT_EQ(-7.0, pos5.y);
 
   // checking Location for pick point 3
   Location pos6 = n.getPickPoint3();
-  EXPECT_EQ(6.0, pos6.x);
-  EXPECT_EQ(0.0, pos6.y);
+  EXPECT_EQ(-5.0, pos6.x);
+  EXPECT_EQ(-7.0, pos6.y);
 }
 

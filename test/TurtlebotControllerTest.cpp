@@ -22,7 +22,6 @@
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  *  DEALINGS IN THE SOFTWARE.
  */
-
 /**
  * @file TurtlebotControllerTest.cpp
  * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
@@ -35,16 +34,13 @@
 #include <geometry_msgs/Twist.h>
 #include <gtest/gtest.h>
 #include <memory>
-#include "warehouse_material_handling_turtlebot/TurtlebotController.h"
-
-
+#include "../include/warehouse_material_handling_turtlebot/TurtlebotController.h"
 /**
  * @brief To test for methods in TurtlebotController class
  * @return None
  */
 TEST(TurtlebotControllerTest, TestMethods) {
-
-	// Object for the TurtlebotController class.
+  // Object for the TurtlebotController class.
   TurtlebotController rob;
 
   // Twist message creation

@@ -25,9 +25,9 @@
 
 /**
  * @file PlanningAlgorithm.h
- * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
+ * @author Charan Karthikeyan P V (Driver), Nagireddi Jagadesh Nischal (Navigator)
  * @copyright MIT License.
- * @date 27/11/2019
+ * @date 2/12/2019
  * @brief The Initialization file for the planner of turtlebot .
  */
 
@@ -109,7 +109,7 @@ public:
 	 private:
 
 	  // MoveBaseAction object for the goal point.
-	  move_base_msgs::MoveBaseAction goalMsg;
+	  move_base_msgs::MoveBaseActionGoal goalMsg;
 
 	  // MoveBaseAction object for the startpoint.
 	  move_base_msgs::MoveBaseActionGoal startPoint;

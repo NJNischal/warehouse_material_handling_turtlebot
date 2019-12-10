@@ -1,0 +1,93 @@
+\hypertarget{classTurtlebotController}{}\section{Turtlebot\+Controller Class Reference}
+\label{classTurtlebotController}\index{Turtlebot\+Controller@{Turtlebot\+Controller}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTurtlebotController_ac5adcb19aebc875356e832f2836207d3}{read\+Vel} ()
+\begin{DoxyCompactList}\small\item\em subscribing to \char`\"{}/navigation\+\_\+velocity\+\_\+smoother/raw\+\_\+cmd\+\_\+vel\char`\"{} topic to which the move\+\_\+base node publishes the velocity msg. \end{DoxyCompactList}\item 
+void \hyperlink{classTurtlebotController_a650922e287d1c76c198079dd58ee714f}{write\+Vel} ()
+\begin{DoxyCompactList}\small\item\em publishes to \char`\"{}/cmd\+\_\+vel topic\char`\"{} which is subscribed by the turtlebot and receives velocity messages. \end{DoxyCompactList}\item 
+geometry\+\_\+msgs\+::\+Twist \hyperlink{classTurtlebotController_ab2c9ea0da12fdd6bfa7207a3c396909b}{get\+Vel} ()
+\begin{DoxyCompactList}\small\item\em Getter for private attribute cmd\+\_\+vel  None. \end{DoxyCompactList}\item 
+void \hyperlink{classTurtlebotController_a697288c1c84177a9c51a71ae447f89fb}{velocity\+Msg\+Callback} (const geometry\+\_\+msgs\+::\+Twist\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em is a callback function for the subscriber, this function sets the command message from the move\+\_\+base message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Turtlebot\+Controller@{Turtlebot\+Controller}!get\+Vel@{get\+Vel}}
+\index{get\+Vel@{get\+Vel}!Turtlebot\+Controller@{Turtlebot\+Controller}}
+\subsubsection[{\texorpdfstring{get\+Vel()}{getVel()}}]{\setlength{\rightskip}{0pt plus 5cm}geometry\+\_\+msgs\+::\+Twist Turtlebot\+Controller\+::get\+Vel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebotController_ab2c9ea0da12fdd6bfa7207a3c396909b}{}\label{classTurtlebotController_ab2c9ea0da12fdd6bfa7207a3c396909b}
+
+
+Getter for private attribute cmd\+\_\+vel  None. 
+
+\begin{DoxyReturn}{Returns}
+geometry\+\_\+msgs\+::\+Twist Returns cmd\+\_\+vel 
+\end{DoxyReturn}
+\index{Turtlebot\+Controller@{Turtlebot\+Controller}!read\+Vel@{read\+Vel}}
+\index{read\+Vel@{read\+Vel}!Turtlebot\+Controller@{Turtlebot\+Controller}}
+\subsubsection[{\texorpdfstring{read\+Vel()}{readVel()}}]{\setlength{\rightskip}{0pt plus 5cm}void Turtlebot\+Controller\+::read\+Vel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebotController_ac5adcb19aebc875356e832f2836207d3}{}\label{classTurtlebotController_ac5adcb19aebc875356e832f2836207d3}
+
+
+subscribing to \char`\"{}/navigation\+\_\+velocity\+\_\+smoother/raw\+\_\+cmd\+\_\+vel\char`\"{} topic to which the move\+\_\+base node publishes the velocity msg. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None.} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Turtlebot\+Controller@{Turtlebot\+Controller}!velocity\+Msg\+Callback@{velocity\+Msg\+Callback}}
+\index{velocity\+Msg\+Callback@{velocity\+Msg\+Callback}!Turtlebot\+Controller@{Turtlebot\+Controller}}
+\subsubsection[{\texorpdfstring{velocity\+Msg\+Callback(const geometry\+\_\+msgs\+::\+Twist\+::\+Const\+Ptr \&msg)}{velocityMsgCallback(const geometry_msgs::Twist::ConstPtr &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void Turtlebot\+Controller\+::velocity\+Msg\+Callback (
+\begin{DoxyParamCaption}
+\item[{const geometry\+\_\+msgs\+::\+Twist\+::\+Const\+Ptr \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebotController_a697288c1c84177a9c51a71ae447f89fb}{}\label{classTurtlebotController_a697288c1c84177a9c51a71ae447f89fb}
+
+
+is a callback function for the subscriber, this function sets the command message from the move\+\_\+base message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None.} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Turtlebot\+Controller@{Turtlebot\+Controller}!write\+Vel@{write\+Vel}}
+\index{write\+Vel@{write\+Vel}!Turtlebot\+Controller@{Turtlebot\+Controller}}
+\subsubsection[{\texorpdfstring{write\+Vel()}{writeVel()}}]{\setlength{\rightskip}{0pt plus 5cm}void Turtlebot\+Controller\+::write\+Vel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebotController_a650922e287d1c76c198079dd58ee714f}{}\label{classTurtlebotController_a650922e287d1c76c198079dd58ee714f}
+
+
+publishes to \char`\"{}/cmd\+\_\+vel topic\char`\"{} which is subscribed by the turtlebot and receives velocity messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None.} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/warehouse\+\_\+material\+\_\+handling\+\_\+turtlebot/\hyperlink{TurtlebotController_8h}{Turtlebot\+Controller.\+h}\item 
+src/\hyperlink{TurtlebotController_8cpp}{Turtlebot\+Controller.\+cpp}\end{DoxyCompactItemize}

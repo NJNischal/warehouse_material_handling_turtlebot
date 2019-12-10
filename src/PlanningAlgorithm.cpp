@@ -25,9 +25,9 @@
 
 /**
  * @file PlanningAlgorithm.cpp
- * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
+ * @author Charan Karthikeyan P V (Driver), Nagireddi Jagadesh Nischal (Navigator)
  * @copyright MIT License.
- * @date 27/11/2019
+ * @date 2/12/2019
  * @brief The Initialization file for the planner of turtlebot .
  */
 
@@ -40,26 +40,36 @@ PlanningAlgorithm::~PlanningAlgorithm() {
 }
 
 move_base_msgs::MoveBaseActionGoal PlanningAlgorithm::getGoal() {
-  move_base_msgs::MoveBaseActionGoal goal;
-  return goal;
+  return goalMsg;
 }
 
 void PlanningAlgorithm::setGoalPt(double x, double y) {
-  (void) x;
-  (void) y;
+  goalMsg.goal.target_pose.header.frame_id = "map";
+  goalMsg.goal.target_pose.header.stamp = ros::Time::now();
+  goalMsg.goal.target_pose.pose.position.x = x;
+  goalMsg.goal.target_pose.pose.position.y = y;
+  goalMsg.goal.target_pose.pose.position.z = 0;
+  geometry_msgs::Quaternion quatVals = tf::createQuaternionMsgFromYaw(0);
+  goalMsg.goal.target_pose.pose.orientation = quatVals;
 }
 
 void PlanningAlgorithm::sendGoalPt() {
+  publishGoalPoint.publish(goalMsg);
 }
 
 uint8_t PlanningAlgorithm::getStatusPt() {
-  return 1;
+  return goalReachStatus;
 }
 
 void PlanningAlgorithm::subscriberStatus() {
+  readSystemStatus = nodeH.subscribe("/move_base/status",
+           200, &PlanningAlgorithm::reachedTargetStatus, this);
 }
 
 void PlanningAlgorithm::reachedTargetStatus(
     const actionlib_msgs::GoalStatusArray::ConstPtr& msg) {
-  (void) msg;
+  if (!msg->status_list.empty()) {
+    actionlib_msgs::GoalStatus goalStatus = msg->status_list[0];
+    goalReachStatus = goalStatus.status;
+  }
 }

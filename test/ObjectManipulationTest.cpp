@@ -33,41 +33,44 @@
  */
 
 #include "gtest/gtest.h"
+#include "ros/ros.h
 #include "../include/warehouse_material_handling_turtlebot/ObjectManipulation.h"
 /*
  * @brief Test function to test the string conversion.
  */
-TEST(ObjectManipulationTest,stringTest) {
+TEST(ObjectManipulationTest, stringTest) {
   ObjectManipulation obs;
-  EXPECT_EQ(obs.setTargetPoint(10),"10");
+  EXPECT_EQ("10", obs.setTargetPoint(10));
 }
 /*
  * @brief Test function to test the object spawn function.
  */
-TEST(ObjectManipulationTest,showObjectTest) {
+TEST(ObjectManipulationTest, showObjectTest) {
   ObjectManipulation obs;
-  std::string command = "rosrun gazebo_ros spawn_model -file src/warehouse_material_handling_turtlebot/gazebo_models/wood_cube_10cm/model.sdf -sdf -x 0 -y 0 -z 0 -model wood";
-  EXPECT_EQ(obs.showObject(0,0),command);
+  std::string command = "rosrun gazebo_ros spawn_model -"
+      "file src/warehouse_material_handling_turtlebot/"
+      "data/gazebo_models/beer/model.sdf -sdf -x 0 -y 0 -z 0 -model beer";
+  EXPECT_EQ(command, obs.showObject(0, 0));
 }
 /*
  * @brief Test function for removing the object.
  */
-TEST(ObjectManipulationTest,disappearObjectTest) {
+TEST(ObjectManipulationTest, disappearObjectTest) {
   ObjectManipulation obs;
-  std::string command = "rosservice call /gazebo/delete_model model_name: 'wood'";
-  EXPECT_EQ(obs.disappearObject(),command);
+  std::string command = "rosservice call /gazebo/delete_model beer";
+  EXPECT_EQ(command, obs.disappearObject());
 }
 /*
  * @brief Test function to test the object spawn function.
  */
-TEST(ObjectManipulationTest,showObjectNETest) {
+TEST(ObjectManipulationTest, showObjectNETest) {
   ObjectManipulation obs;
-  EXPECT_EQ(obs.showObject(0,0),"10");
+  EXPECT_NE("10", obs.showObject(0, 0));
 }
 /*
  * @brief Test function for removing the object.
  */
-TEST(ObjectManipulationTest,disappearObjectNETest) {
+TEST(ObjectManipulationTest, disappearObjectNETest) {
   ObjectManipulation obs;
-  EXPECT_EQ(obs.disappearObject(),"0");
+  EXPECT_NE("0", obs.disappearObject());
 }

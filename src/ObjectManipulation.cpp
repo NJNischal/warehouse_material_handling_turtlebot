@@ -27,15 +27,13 @@
  * @file ObjectManipulation.cpp
  * @author Charan Karthikeyan P V (Navigator), Nagireddi Jagadesh Nischal (Driver)
  * @copyright MIT License.
- * @date 27/11/2019
+ * @date 2/12/2019
  * @brief Cpp file for class to manipulate objects when Turtlebot reaches pick up or drop off
  * locations in the map
  */
 
 #include "../include/warehouse_material_handling_turtlebot/ObjectManipulation.h"
-
 #include "ros/ros.h"
-
 /*
  * @brief The constructor for the ObjectManipulation class.
  * @param None.
@@ -53,19 +51,42 @@ ObjectManipulation::~ObjectManipulation() {
 }
 
 std::string ObjectManipulation::setTargetPoint(double targetPoint) {
-	std::string a="a";
-	return a;
+  std::ostringstream conv;
+  // Convert the input to string
+  conv << targetPoint;
+  return conv.str();
 }
 
 std::string ObjectManipulation::showObject(double x, double y) {
-  (void) x;
-  (void) y;
-  std::string temp = "Void";
-  return temp;
+  // Converting the double values to string
+  std::string g_x = setTargetPoint(x);
+  std::string g_y = setTargetPoint(y);
+  // rosrun file for spawning the object in gazebo.
+  std::string start = "rosrun gazebo_ros spawn_model "
+      "-file src/warehouse_material_handling_turtlebot/"
+      "data/gazebo_models/beer/model.sdf -sdf ";
+  std::string x_vals = "-x ";
+  std::string y_vals = " -y ";
+  std::string end = " -z 0 -model beer";
+  // Joining all the strings to form the command.
+  std::string cmd = start+x_vals+g_x+y_vals+g_y+end;
+  const char* command  = cmd.c_str();
+  ROS_INFO("Set the objects in the map ");
+  // Sending the command to the system.
+  system(command);
+  return cmd;
 }
 
 std::string ObjectManipulation::disappearObject() {
-  std::string temp = "Void";
-  return temp;
+  // Rosservice to remove the model from the gazebo environment.
+  std::string destroy = "rosservice call /gazebo/delete_model";
+  std::string cont = " beer";
+  // Joining the string to form the command.
+  std::string cmd = destroy+cont;
+  const char* command = cmd.c_str();
+  ROS_INFO("Removed the Object from the map");
+  // Send the command to the system to execute.
+  system(command);
+  return cmd;
 }
 
