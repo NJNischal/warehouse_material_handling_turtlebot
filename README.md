@@ -127,6 +127,12 @@ play the bag file
 ```
 rosbag play turtlebotRecord.bag
 ```
+## Project presentation file:
+```
+https://docs.google.com/presentation/d/1EqtoMBCBFGFMVVp5oWs3WTs19BYG9kjA4Choq2yttuA/edit?ts=5ded4c3c#slide=id.p
+```
+
+
 
 # Known issues/bugs:
 
