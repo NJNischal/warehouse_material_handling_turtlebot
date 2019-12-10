@@ -43,7 +43,7 @@ SOFTWARE.
 ```
 
 ## AIP Process
-AIP is a process to keep track of the development process of the project and the various stages of it. This is to ensure proper documentation and coding procedure [AIP Sheet].(https://docs.google.com/spreadsheets/d/1YG9A4ZB1t7vgH_hY97Hb9HoYH1bjR3qtn0_fkEVQcmw/edit?usp=sharing) 
+AIP is a process to keep track of the development process of the project and the various stages of it. This is to ensure proper documentation and coding procedure [AIP Sheet].(https://docs.google.com/spreadsheets/d/1iTVag578S2opVGFuAbI7zZNWsmBAWEnu3JR6vZmqdl8/edit#gid=0) 
 
 ## Sprint File 
 The sprint is a one time boxed iteration of a continuous development cycle. The planned amount of work has to be completed within the timeframe and made ready for review. It also records the problems faced in the particular development cycle and also explains what was done to overcome the shortcomings of that particular model. The link to the file is given in the link [Sprint].(https://docs.google.com/document/d/1NIg2KEz3llf0xRq-ydAG3ZItjLUa9o6z1Mq-7OKM3RY/edit?usp=sharing)
