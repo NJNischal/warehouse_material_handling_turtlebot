@@ -33,7 +33,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "ros/ros.h
+#include "ros/ros.h"
 #include "../include/warehouse_material_handling_turtlebot/ObjectManipulation.h"
 /*
  * @brief Test function to test the string conversion.
