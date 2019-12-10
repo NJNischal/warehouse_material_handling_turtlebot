@@ -77,7 +77,7 @@ source /opt/ros/kinetic/setup.bash
 ``` 
 
 
-Build instructions:
+## Build instructions for the package:
 ```
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
@@ -90,25 +90,25 @@ catkin_make
 ```
 
 
-Running Test:
+## Running Test for the package:
 ```
 cd ~/catkin_ws
 catkin_make run_tests warehouse_material_handling_turtlebot
 ```
 
 
-Running Demo:
+## Instructions for running the Demo:
 ```
 cd ~/catkin_ws
 roslaunch warehouse_material_handling_turtlebot demo.launch
 rosrun warehouse_material_handling_turtlebot warehouse_material_handling_turtlebot
 ```
-
+The user will be prompted to enter the Pickup and Dropoff location numbers here and the robot will proceed to navigate to the desired points.
 
 
 ## Recording ROSBAG
 
- Record the rostopics using the following command with the launch file:
+Record the rostopics using the following command with the launch file:
 ```
 roslaunch  warehouse_material_handling_turtlebot demo.launch record:=true
 ```
