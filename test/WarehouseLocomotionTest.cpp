@@ -24,7 +24,7 @@
  */
 
 /**
- * @file WarehouseLocomotion.cpp
+ * @file WarehouseLocomotionTest.cpp
  * @author Charan Karthikeyan P V (Driver), Nagireddi Jagadesh Nischal (Navigator)
  * @copyright MIT License.
  * @date 28/11/2019
