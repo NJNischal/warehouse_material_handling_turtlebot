@@ -105,6 +105,10 @@ rosrun warehouse_material_handling_turtlebot warehouse_material_handling_turtleb
 ```
 The user will be prompted to enter the Pickup and Dropoff location numbers here and the robot will proceed to navigate to the desired points.
 
+## Video Link:
+```
+https://youtu.be/6r23akwYXgQ
+```
 
 ## Recording ROSBAG
 
