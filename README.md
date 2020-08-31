@@ -136,10 +136,8 @@ rosbag play turtlebotRecord.bag
 ```
 ## Project presentation file:
 ```
-https://docs.google.com/presentation/d/1EqtoMBCBFGFMVVp5oWs3WTs19BYG9kjA4Choq2yttuA/edit?ts=5ded4c3c#slide=id.p
+https://docs.google.com/presentation/d/15vaOSoM6xAlh0ZxI7Dl3swAsZUrWqlqasGYO0cPAGX0/edit?usp=sharing
 ```
-
-
 
 # Known issues/bugs:
 
