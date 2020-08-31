@@ -9,7 +9,7 @@
 (ACME Project codename: RapidGoBot) This package is a ROS implementation of a material handling robot for a warehouse scenario. The Package uses ROS navigation stack along with Turtlebot to autonomously navigate in a warehouse while demonstrating optimal path planning and obstacle avoidance behaviour.
 This package also demonstrates the pick and place of an object with the turtlebot at certain designated locations in the custom designed world map.
  
-## Output Demo:
+## Output Demo
 
 ![](Results/demo.gif)
 
